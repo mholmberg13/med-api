@@ -88,8 +88,7 @@ router.post("/login", async (req, res) => {
             token,
             user: {
                 id: user._id,
-                displayName: user.displayName,
-                email: user.email
+                displayName: user.displayName
             }
         })
 
@@ -126,7 +125,7 @@ router.post("/tokenIsValid", async ( req, res ) => {
 })
 
 router.get("/", auth, async (req, res) => {
-    const user = await User.findById(req, user)
+    const user = await User.findById(req.user)
     res.json(user)
 })
 
