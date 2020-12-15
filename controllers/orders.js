@@ -21,10 +21,9 @@ router.post("/orders", auth, async (req, res) => {
             city,
             state_region,
             country
-
         });
-
         const savedOrder = await newOrder.save();
+
         res.json(savedOrder);
 
     } catch (err) {
@@ -32,8 +31,10 @@ router.post("/orders", auth, async (req, res) => {
     }
 })
 
-router.put("/orders", auth, async (req, res) => {
-
+router.put("/orders/:id", auth, async (req, res) => {
+    Order.findByIdAndUpdate(
+        
+    )
 })
 
 router.delete("/orders", auth, async (req, res) => {
