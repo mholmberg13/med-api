@@ -32,13 +32,20 @@ router.post("/orders", auth, async (req, res) => {
 })
 
 router.put("/orders/:id", auth, async (req, res) => {
-    Order.findByIdAndUpdate(
+    try {
+        Order.findByIdAndUpdate()
+    } catch {
         
-    )
+    }
 })
 
 router.delete("/orders", auth, async (req, res) => {
-
+    try {
+        const deleteOrder = await Order.findByIdAndDelete(req.user)
+        res.json(deleteOrder);
+    } catch (err) {
+        res.status(500).json({error: err.message})
+    }
 })
 
 
