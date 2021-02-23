@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Orders = require('../models/orders.js');
+const User = require('../models/users.js');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const auth = require('../middleware/auth')
@@ -14,10 +15,10 @@ router.post("/orders", auth, async (req, res) => {
     
     try { 
         const newOrder = new Order({
-            orderer_name,
+            orderer_name: req.user,
             order_email,
-            product_amount,
-            street_address,
+            qty,
+            street,
             city,
             state_region,
             country

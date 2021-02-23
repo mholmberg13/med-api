@@ -11,7 +11,7 @@ const db = mongoose.connection
 
 // Environment Variables (Setting Up for Heroku)
 const PORT = process.env.PORT || 3004
-// const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/med3d-v2'
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/med3d-v2'
 
 
 
